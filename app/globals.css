@@ -227,7 +227,7 @@ a {
 }
 
 .hero-title {
-  width: min(100%, 10.2em);
+  width: min(100%, 11.1em);
   margin: 0 auto;
   font-size: clamp(3.2rem, 7.4vw, 5.8rem);
 }
