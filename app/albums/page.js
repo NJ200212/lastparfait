@@ -1,41 +1,36 @@
+import { readdir } from "node:fs/promises";
+import path from "node:path";
 import Link from "next/link";
 import SiteHeader from "../site-header";
 
-const mediaItems = [
-  {
-    id: "shaka-photo-01",
-    type: "image",
-    title: "釈迦色社会 Photo 01",
-    note: "画像アップロード枠"
-  },
-  {
-    id: "shaka-photo-02",
-    type: "image",
-    title: "釈迦色社会 Photo 02",
-    note: "画像アップロード枠"
-  },
-  {
-    id: "parfait-photo-01",
-    type: "image",
-    title: "パフェ山脈 Photo 01",
-    note: "画像アップロード枠"
-  },
-  {
-    id: "movie-01",
-    type: "video",
-    title: "Live Movie 01",
-    note: "動画アップロード枠"
-  }
-];
+const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
+const VIDEO_EXTENSIONS = new Set([".mp4", ".mov", ".webm", ".m4v"]);
 
-const imageItems = mediaItems.filter((item) => item.type === "image");
-const videoItems = mediaItems.filter((item) => item.type === "video");
+async function getMediaItems(folderName, extensions) {
+  const directory = path.join(process.cwd(), "public", "gallery", folderName);
+  const entries = await readdir(directory, { withFileTypes: true }).catch(() => []);
+
+  return entries
+    .filter((entry) => entry.isFile())
+    .filter((entry) => extensions.has(path.extname(entry.name).toLowerCase()))
+    .sort((left, right) => left.name.localeCompare(right.name, "ja"))
+    .map((entry) => ({
+      id: `${folderName}-${entry.name}`,
+      src: `/gallery/${folderName}/${entry.name}`,
+      title: entry.name
+    }));
+}
 
 export const metadata = {
   title: "アルバム | 釈迦色社会×パフェ山脈Last Live Vol.2"
 };
 
-export default function AlbumsPage() {
+export default async function AlbumsPage() {
+  const [imageItems, videoItems] = await Promise.all([
+    getMediaItems("images", IMAGE_EXTENSIONS),
+    getMediaItems("videos", VIDEO_EXTENSIONS)
+  ]);
+
   return (
     <main className="site-shell">
       <SiteHeader />
@@ -44,34 +39,51 @@ export default function AlbumsPage() {
         <div className="subpage-header">
           <p className="eyebrow">Gallery</p>
           <h1>画像・動画ギャラリー</h1>
-          <p>画像や動画の置き場所として使う前提に変更しました。項目は配列で管理しているので、追加した分だけ下に無制限で並びます。</p>
+          <p>
+            `public/gallery/images` と `public/gallery/videos` にファイルを入れて GitHub を更新すると、
+            このページに自動で追加されます。
+          </p>
         </div>
 
         <section className="gallery-section">
           <p className="section-label">Images</p>
           <div className="media-grid">
-            {imageItems.map((item) => (
-              <article className="media-card" key={item.id}>
-                <div className="media-surface visual-placeholder" aria-label={`${item.title} placeholder`}>
+            {imageItems.length > 0 ? (
+              imageItems.map((item) => (
+                <article className="media-card" key={item.id}>
+                  <img src={item.src} alt={item.title} className="media-surface media-image" />
+                </article>
+              ))
+            ) : (
+              <article className="media-card media-card-empty">
+                <div className="media-surface visual-placeholder" aria-label="image placeholder">
                   <span>Image Space</span>
-                  <small>{item.note}</small>
+                  <small>public/gallery/images に追加</small>
                 </div>
               </article>
-            ))}
+            )}
           </div>
         </section>
 
         <section className="gallery-section">
           <p className="section-label">Videos</p>
           <div className="media-grid">
-            {videoItems.map((item) => (
-              <article className="media-card" key={item.id}>
-                <div className="media-surface visual-placeholder" aria-label={`${item.title} placeholder`}>
+            {videoItems.length > 0 ? (
+              videoItems.map((item) => (
+                <article className="media-card" key={item.id}>
+                  <video src={item.src} controls preload="metadata" className="media-surface media-video">
+                    お使いのブラウザは動画再生に対応していません。
+                  </video>
+                </article>
+              ))
+            ) : (
+              <article className="media-card media-card-empty">
+                <div className="media-surface visual-placeholder" aria-label="video placeholder">
                   <span>Video Space</span>
-                  <small>{item.note}</small>
+                  <small>public/gallery/videos に追加</small>
                 </div>
               </article>
-            ))}
+            )}
           </div>
         </section>
 

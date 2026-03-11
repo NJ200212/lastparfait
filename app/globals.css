@@ -445,6 +445,20 @@ h2 {
 .media-surface {
   min-height: 220px;
   aspect-ratio: 1 / 1;
+  width: 100%;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.media-image,
+.media-video {
+  display: block;
+  object-fit: cover;
+  background: rgba(35, 11, 16, 0.32);
+}
+
+.media-card-empty {
+  max-width: min(100%, 280px);
 }
 
 @media (max-width: 900px) {
