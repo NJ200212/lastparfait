@@ -180,6 +180,8 @@ a {
   gap: 8px;
   text-align: center;
   padding: 24px;
+}
+
 .visual-placeholder span {
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -194,8 +196,10 @@ a {
 .site-logo-image {
   position: relative;
   z-index: 1;
+  display: block;
   width: min(88vw, 720px);
   height: 112px;
+  max-height: 112px;
   object-fit: contain;
 }
 
