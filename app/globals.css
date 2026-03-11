@@ -427,27 +427,26 @@ h2 {
   font-size: 1.05rem;
 }
 
-.album-grid {
+.media-grid {
   display: grid;
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
   margin-bottom: 32px;
 }
 
-.album-card {
+.media-card {
   display: grid;
-  grid-template-columns: minmax(220px, 28%) minmax(0, 1fr);
-  gap: 24px;
-  align-items: stretch;
+  gap: 12px;
 }
 
-.album-art {
-  min-height: 280px;
+.media-surface {
+  min-height: 220px;
   aspect-ratio: 1 / 1;
 }
 
-.album-copy {
-  display: grid;
-  align-content: center;
+.media-meta h2 {
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 @media (max-width: 900px) {
@@ -457,13 +456,16 @@ h2 {
 
   .hero-stage-inner,
   .band-panel,
-  .band-feature,
-  .album-card {
+  .band-feature {
     grid-template-columns: 1fr;
   }
 
   .band-feature-name {
     max-width: 100%;
+  }
+
+  .media-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -522,7 +524,7 @@ h2 {
 
   .band-feature-photo,
   .band-panel-photo,
-  .album-art {
+  .media-surface {
     min-height: 34vh;
   }
 
@@ -532,6 +534,10 @@ h2 {
   }
 
   .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .media-grid {
     grid-template-columns: 1fr;
   }
 }

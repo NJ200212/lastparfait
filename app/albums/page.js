@@ -1,21 +1,30 @@
 import Link from "next/link";
 import SiteHeader from "../site-header";
 
-const albums = [
+const mediaItems = [
   {
-    title: "釈迦色社会 Archive",
-    band: "釈迦色社会",
-    text: "ジャケット画像、リリース年、短い紹介文を載せられるようにしたアルバム枠です。"
+    id: "shaka-photo-01",
+    type: "image",
+    title: "釈迦色社会 Photo 01",
+    note: "画像アップロード枠"
   },
   {
-    title: "Parfait Range",
-    band: "パフェ山脈",
-    text: "音源リンクや配信先への導線を足せるよう、余白を残したカード構成にしています。"
+    id: "shaka-photo-02",
+    type: "image",
+    title: "釈迦色社会 Photo 02",
+    note: "画像アップロード枠"
   },
   {
-    title: "Last Live Memories",
-    band: "Both Bands",
-    text: "終演後に記念作品やライブ音源情報をまとめる用途にも流用できます。"
+    id: "parfait-photo-01",
+    type: "image",
+    title: "パフェ山脈 Photo 01",
+    note: "画像アップロード枠"
+  },
+  {
+    id: "movie-01",
+    type: "video",
+    title: "Live Movie 01",
+    note: "動画アップロード枠"
   }
 ];
 
@@ -30,22 +39,21 @@ export default function AlbumsPage() {
 
       <section className="subpage-shell">
         <div className="subpage-header">
-          <p className="eyebrow">Albums</p>
-          <h1>アルバム</h1>
-          <p>アルバム情報やジャケット画像を後から差し込めるよう、カードと画像スペースを用意しています。</p>
+          <p className="eyebrow">Gallery</p>
+          <h1>画像・動画ギャラリー</h1>
+          <p>画像や動画の置き場所として使う前提に変更しました。項目は配列で管理しているので、追加した分だけ下に無制限で並びます。</p>
         </div>
 
-        <section className="album-grid">
-          {albums.map((album) => (
-            <article className="album-card" key={album.title}>
-              <div className="album-art visual-placeholder" aria-label={`${album.title} artwork placeholder`}>
-                <span>Album Art Space</span>
-                <small>lastparfait/assets</small>
+        <section className="media-grid">
+          {mediaItems.map((item) => (
+            <article className="media-card" key={item.id}>
+              <div className="media-surface visual-placeholder" aria-label={`${item.title} placeholder`}>
+                <span>{item.type === "video" ? "Video Space" : "Image Space"}</span>
+                <small>{item.note}</small>
               </div>
-              <div className="content-card album-copy">
-                <p className="section-label">{album.band}</p>
-                <h2>{album.title}</h2>
-                <p>{album.text}</p>
+              <div className="media-meta">
+                <p className="section-label">{item.type === "video" ? "Video" : "Image"}</p>
+                <h2>{item.title}</h2>
               </div>
             </article>
           ))}
