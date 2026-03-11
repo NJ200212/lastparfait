@@ -58,7 +58,6 @@ export default async function AlbumsPage() {
               <article className="media-card media-card-empty">
                 <div className="media-surface visual-placeholder" aria-label="image placeholder">
                   <span>Image Space</span>
-                  <small>public/gallery/images に追加</small>
                 </div>
               </article>
             )}
@@ -80,7 +79,6 @@ export default async function AlbumsPage() {
               <article className="media-card media-card-empty">
                 <div className="media-surface visual-placeholder" aria-label="video placeholder">
                   <span>Video Space</span>
-                  <small>public/gallery/videos に追加</small>
                 </div>
               </article>
             )}
