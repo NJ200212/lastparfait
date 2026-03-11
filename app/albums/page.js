@@ -28,6 +28,9 @@ const mediaItems = [
   }
 ];
 
+const imageItems = mediaItems.filter((item) => item.type === "image");
+const videoItems = mediaItems.filter((item) => item.type === "video");
+
 export const metadata = {
   title: "アルバム | 釈迦色社会×パフェ山脈Last Live Vol.2"
 };
@@ -44,19 +47,32 @@ export default function AlbumsPage() {
           <p>画像や動画の置き場所として使う前提に変更しました。項目は配列で管理しているので、追加した分だけ下に無制限で並びます。</p>
         </div>
 
-        <section className="media-grid">
-          {mediaItems.map((item) => (
-            <article className="media-card" key={item.id}>
-              <div className="media-surface visual-placeholder" aria-label={`${item.title} placeholder`}>
-                <span>{item.type === "video" ? "Video Space" : "Image Space"}</span>
-                <small>{item.note}</small>
-              </div>
-              <div className="media-meta">
-                <p className="section-label">{item.type === "video" ? "Video" : "Image"}</p>
-                <h2>{item.title}</h2>
-              </div>
-            </article>
-          ))}
+        <section className="gallery-section">
+          <p className="section-label">Images</p>
+          <div className="media-grid">
+            {imageItems.map((item) => (
+              <article className="media-card" key={item.id}>
+                <div className="media-surface visual-placeholder" aria-label={`${item.title} placeholder`}>
+                  <span>Image Space</span>
+                  <small>{item.note}</small>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="gallery-section">
+          <p className="section-label">Videos</p>
+          <div className="media-grid">
+            {videoItems.map((item) => (
+              <article className="media-card" key={item.id}>
+                <div className="media-surface visual-placeholder" aria-label={`${item.title} placeholder`}>
+                  <span>Video Space</span>
+                  <small>{item.note}</small>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
 
         <Link href="/" className="secondary-link">
