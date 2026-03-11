@@ -28,13 +28,8 @@ export default function HomePage() {
         <div className="hero-stage-inner">
           <div className="hero-copy">
             <p className="eyebrow">Last Live Announcement</p>
-            <h1>釈迦色社会×パフェ山脈Last Live Vol.2</h1>
+            <h1 className="hero-title">釈迦色社会×パフェ山脈Last Live Vol.2</h1>
             <p className="lead">2026/03/15(sun) 15:00開場 15:30開演 / 4共30 / free</p>
-          </div>
-
-          <div className="visual-placeholder hero-visual-placeholder" aria-label="key visual placeholder">
-            <span>Key Visual Space</span>
-            <small>lastparfait/assets</small>
           </div>
         </div>
       </section>

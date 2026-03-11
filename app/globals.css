@@ -217,14 +217,16 @@ a {
 }
 
 .hero-stage-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-  align-items: center;
-  gap: 4vw;
+  display: block;
 }
 
-.hero-copy h1 {
-  max-width: 12ch;
+.hero-copy {
+  max-width: 760px;
+}
+
+.hero-title {
+  max-width: 8.5em;
+  font-size: clamp(2.8rem, 7.1vw, 5.4rem);
 }
 
 .page-shell,
@@ -371,10 +373,6 @@ h2 {
   min-height: 46vh;
 }
 
-.hero-visual-placeholder {
-  min-height: 56vh;
-}
-
 .subpage-header {
   margin-bottom: 24px;
 }
@@ -509,7 +507,6 @@ h2 {
   }
 
   .band-feature-photo,
-  .hero-visual-placeholder,
   .band-panel-photo,
   .album-art {
     min-height: 34vh;
