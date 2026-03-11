@@ -66,7 +66,7 @@ export default function HomePage() {
                 セットリストを見る
               </Link>
               <Link href="/albums" className="secondary-link">
-                アルバムを見る
+                ギャラリーを見る
               </Link>
             </div>
           </section>

@@ -7,7 +7,7 @@ const menuItems = [
   { href: "/", label: "トップ" },
   { href: "/bands", label: "バンド紹介" },
   { href: "/setlist", label: "セットリスト" },
-  { href: "/albums", label: "アルバム" }
+  { href: "/albums", label: "ギャラリー" }
 ];
 
 export default function HeaderMenu() {

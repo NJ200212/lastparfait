@@ -22,7 +22,7 @@ async function getMediaItems(folderName, extensions) {
 }
 
 export const metadata = {
-  title: "アルバム | 釈迦色社会×パフェ山脈Last Live Vol.2"
+  title: "ギャラリー | 釈迦色社会×パフェ山脈Last Live Vol.2"
 };
 
 export default async function AlbumsPage() {
