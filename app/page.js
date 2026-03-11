@@ -59,7 +59,7 @@ export default function HomePage() {
             </div>
 
             <div className="cta-row">
-              <Link href="/bands" className="primary-link">
+              <Link href="/bands" className="secondary-link">
                 バンド紹介を見る
               </Link>
               <Link href="/setlist" className="secondary-link">
