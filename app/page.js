@@ -1,6 +1,6 @@
 import Link from "next/link";
-import HeaderMenu from "./header-menu";
 import RevealOnScroll from "./reveal-on-scroll";
+import SiteHeader from "./site-header";
 
 const eventInfo = [
   { label: "タイトル", value: "釈迦色社会×パフェ山脈Last Live Vol.2" },
@@ -14,15 +14,7 @@ const bands = ["釈迦色社会", "パフェ山脈"];
 export default function HomePage() {
   return (
     <main className="site-shell">
-      <header className="site-header">
-        <HeaderMenu />
-        <div className="site-logo" aria-label="logo placeholder">
-          <div className="site-logo-placeholder">
-            <span>Logo Space</span>
-            <small>lastparfait/assets に画像を追加</small>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="hero-stage">
         <div className="hero-stage-inner">

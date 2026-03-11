@@ -1,5 +1,5 @@
 import Link from "next/link";
-import HeaderMenu from "../header-menu";
+import SiteHeader from "../site-header";
 
 const setlists = [
   {
@@ -19,15 +19,7 @@ export const metadata = {
 export default function SetlistPage() {
   return (
     <main className="site-shell">
-      <header className="site-header">
-        <HeaderMenu />
-        <Link href="/" className="site-logo" aria-label="home">
-          <div className="site-logo-placeholder">
-            <span>Logo Space</span>
-            <small>lastparfait/assets に画像を追加</small>
-          </div>
-        </Link>
-      </header>
+      <SiteHeader />
 
       <section className="subpage-shell">
         <div className="subpage-header">
