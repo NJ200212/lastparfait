@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 
 const menuItems = [
   { href: "/", label: "トップ" },
-  { href: "/bands", label: "バンド紹介" }
+  { href: "/bands", label: "バンド紹介" },
+  { href: "/setlist", label: "セットリスト" },
+  { href: "/albums", label: "アルバム" }
 ];
 
 export default function HeaderMenu() {

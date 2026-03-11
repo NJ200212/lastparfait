@@ -72,6 +72,12 @@ export default function HomePage() {
               <Link href="/bands" className="primary-link">
                 バンド紹介を見る
               </Link>
+              <Link href="/setlist" className="secondary-link">
+                セットリストを見る
+              </Link>
+              <Link href="/albums" className="secondary-link">
+                アルバムを見る
+              </Link>
             </div>
           </section>
         </section>
