@@ -234,6 +234,15 @@ a {
   font-size: clamp(3rem, 6.9vw, 5.4rem);
 }
 
+.hero-title-line {
+  display: block;
+}
+
+.hero-title-subline {
+  margin-top: 0.08em;
+  font-size: 0.86em;
+}
+
 .page-shell,
 .subpage-shell {
   padding: 72px 0 88px;
