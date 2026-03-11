@@ -229,7 +229,7 @@ a {
 }
 
 .hero-title {
-  width: min(100%, 12.1em);
+  width: min(100%, 13.1em);
   margin: 0 auto;
   font-size: clamp(3.2rem, 7.4vw, 5.8rem);
 }
