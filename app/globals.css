@@ -345,8 +345,8 @@ h2 {
 }
 
 .secondary-link {
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 209, 180, 0.34);
+  background: rgba(255, 245, 236, 0.1);
 }
 
 .primary-link:hover,
