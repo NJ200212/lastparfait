@@ -221,12 +221,15 @@ a {
 }
 
 .hero-copy {
-  max-width: 760px;
+  width: min(100%, 980px);
+  margin: 0 auto;
+  text-align: center;
 }
 
 .hero-title {
-  max-width: 8.5em;
-  font-size: clamp(2.8rem, 7.1vw, 5.4rem);
+  width: min(100%, 10.2em);
+  margin: 0 auto;
+  font-size: clamp(3.2rem, 7.4vw, 5.8rem);
 }
 
 .page-shell,
