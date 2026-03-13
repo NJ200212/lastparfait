@@ -249,6 +249,7 @@ a {
   font-size: clamp(3.1rem, 6.7vw, 5.9rem);
   line-height: 0.94;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 .page-shell,
@@ -408,6 +409,24 @@ h2 {
   display: grid;
   gap: 32px;
   margin-bottom: 32px;
+}
+
+.bands-page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+  align-items: start;
+}
+
+.band-profile-card {
+  display: grid;
+  gap: 20px;
+}
+
+.band-profile-text {
+  display: grid;
+  gap: 16px;
 }
 
 .content-stack {
@@ -628,8 +647,9 @@ h2 {
   }
 
   .hero-title-main {
-    font-size: clamp(2.1rem, 9vw, 3.15rem);
+    font-size: clamp(1.72rem, 7.2vw, 2.45rem);
     line-height: 0.98;
+    letter-spacing: 0.02em;
   }
 
   .band-feature-photo,
@@ -648,6 +668,10 @@ h2 {
   }
 
   .media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bands-page-grid {
     grid-template-columns: 1fr;
   }
 
