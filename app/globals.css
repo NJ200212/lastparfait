@@ -89,6 +89,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 20;
+  background: rgba(35, 11, 16, 0.52);
+  backdrop-filter: blur(10px);
 }
 
 .site-logo {
@@ -104,8 +106,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(35, 11, 16, 0.52);
-  backdrop-filter: blur(10px);
+  background: transparent;
 }
 
 .visual-placeholder {
