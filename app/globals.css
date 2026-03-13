@@ -164,6 +164,8 @@ a {
   backdrop-filter: blur(12px);
   color: var(--accent-strong);
   font-size: 1.02rem;
+  line-height: 1.35;
+  text-align: center;
   letter-spacing: 0.08em;
   transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
 }
@@ -336,11 +338,12 @@ h2 {
 
 .bands-flow {
   display: grid;
-  gap: 50vh;
+  gap: 28vh;
   padding-top: 0;
 }
 
 .home-bands-flow {
+  padding-top: 112px;
   padding-bottom: 64px;
 }
 
@@ -708,9 +711,9 @@ h2 {
 
   .header-link-pill {
     min-height: 48px;
-    padding: 0 8px;
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
+    padding: 0 6px;
+    font-size: 0.66rem;
+    letter-spacing: 0.02em;
   }
 
   .hero-stage {
@@ -719,7 +722,11 @@ h2 {
   }
 
   .bands-flow {
-    gap: 28vh;
+    gap: 18vh;
+  }
+
+  .home-bands-flow {
+    padding-top: 72px;
   }
 
   .band-feature {
