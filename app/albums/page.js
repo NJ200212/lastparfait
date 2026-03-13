@@ -48,7 +48,7 @@ export default async function AlbumsPage() {
       <section className="subpage-shell">
         <div className="subpage-header">
           <p className="eyebrow">Gallery</p>
-          <h1>画像・動画ギャラリー</h1>
+          <h1>ギャラリー</h1>
         </div>
 
         <nav className="gallery-jump-nav" aria-label="ギャラリー内移動">
