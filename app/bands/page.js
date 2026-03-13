@@ -36,7 +36,10 @@ export default async function BandsPage() {
 
             return (
               <article className="band-profile-card" key={band.key}>
-                <div className="band-panel-photo visual-placeholder" aria-label={`${band.name} visual placeholder`}>
+                <div
+                  className={`band-panel-photo visual-placeholder${image ? " has-band-photo" : ""}`}
+                  aria-label={`${band.name} visual placeholder`}
+                >
                   {image ? (
                     <img
                       src={image.src}

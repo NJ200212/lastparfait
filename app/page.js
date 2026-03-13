@@ -41,7 +41,10 @@ export default async function HomePage() {
                   <p className="section-label">Performing Band</p>
                   <h2>{band.name}</h2>
                 </div>
-                <div className="band-feature-photo visual-placeholder" aria-label={`${band.name} photo space`}>
+                <div
+                  className={`band-feature-photo visual-placeholder${image ? " has-band-photo" : ""}`}
+                  aria-label={`${band.name} photo space`}
+                >
                   {image ? (
                     <img
                       src={image.src}
