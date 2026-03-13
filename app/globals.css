@@ -161,9 +161,9 @@ a {
   min-height: 62px;
   padding: 0 14px;
   border: 1px solid rgba(255, 209, 180, 0.34);
-  background: rgba(35, 11, 16, 0.62);
+  background: rgba(255, 236, 220, 0.9);
   backdrop-filter: blur(12px);
-  color: var(--accent-strong);
+  color: #4b190f;
   font-size: 1.02rem;
   line-height: 1.35;
   text-align: center;
@@ -173,8 +173,8 @@ a {
 
 .header-link-pill:hover {
   transform: translateY(-1px);
-  background: rgba(58, 18, 25, 0.74);
-  border-color: rgba(255, 209, 180, 0.5);
+  background: rgba(255, 244, 233, 0.98);
+  border-color: rgba(255, 209, 180, 0.64);
 }
 
 .hero-stage {
