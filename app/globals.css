@@ -565,9 +565,9 @@ h2 {
 }
 
 .media-surface {
-  min-height: 220px;
   aspect-ratio: 1 / 1;
   width: 100%;
+  height: auto;
   border: 1px solid var(--border);
   overflow: hidden;
   transition: transform 180ms ease, border-color 180ms ease;
@@ -761,8 +761,7 @@ h2 {
     }
 
   .band-feature-photo,
-  .band-panel-photo,
-  .media-surface {
+  .band-panel-photo {
     min-height: 34vh;
   }
 
