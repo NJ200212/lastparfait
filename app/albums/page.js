@@ -2,6 +2,7 @@ import { readdir } from "node:fs/promises";
 import path from "node:path";
 import Link from "next/link";
 import SiteHeader from "../site-header";
+import GalleryLightbox from "./gallery-lightbox";
 
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
 const VIDEO_EXTENSIONS = new Set([".mp4", ".mov", ".webm", ".m4v"]);
@@ -11,7 +12,7 @@ const galleryBands = [
   { key: "parfait-sanmyaku", label: "パフェ山脈" }
 ];
 
-async function getMediaItems(bandKey, folderName, extensions) {
+async function getMediaItems(bandKey, folderName, extensions, type) {
   const directory = path.join(process.cwd(), "public", "gallery", bandKey, folderName);
   const entries = await readdir(directory, { withFileTypes: true }).catch(() => []);
 
@@ -22,20 +23,21 @@ async function getMediaItems(bandKey, folderName, extensions) {
     .map((entry) => ({
       id: `${bandKey}-${folderName}-${entry.name}`,
       src: `/gallery/${bandKey}/${folderName}/${entry.name}`,
-      title: entry.name
+      title: entry.name,
+      type
     }));
 }
 
 export const metadata = {
-  title: "ギャラリー | 釈迦色社会×パフェ山脈Last Live Vol.2"
+  title: "ギャラリー | 釈迦色社会×パフェ山脈 Last Live Vol.2"
 };
 
 export default async function AlbumsPage() {
   const gallerySections = await Promise.all(
     galleryBands.map(async (band) => ({
       ...band,
-      images: await getMediaItems(band.key, "images", IMAGE_EXTENSIONS),
-      videos: await getMediaItems(band.key, "videos", VIDEO_EXTENSIONS)
+      images: await getMediaItems(band.key, "images", IMAGE_EXTENSIONS, "image"),
+      videos: await getMediaItems(band.key, "videos", VIDEO_EXTENSIONS, "video")
     }))
   );
 
@@ -57,56 +59,7 @@ export default async function AlbumsPage() {
           ))}
         </nav>
 
-        <section className="gallery-band-stack">
-          {gallerySections.map((band) => (
-            <section className="gallery-band-section" key={band.key} id={`gallery-${band.key}`}>
-              <div className="gallery-band-header">
-                <p className="section-label">Gallery</p>
-                <h2>{band.label}</h2>
-              </div>
-
-              <section className="gallery-section">
-                <p className="section-label">Images</p>
-                <div className="media-grid">
-                  {band.images.length > 0 ? (
-                    band.images.map((item) => (
-                      <article className="media-card" key={item.id}>
-                        <img src={item.src} alt={item.title} className="media-surface media-image" />
-                      </article>
-                    ))
-                  ) : (
-                    <article className="media-card media-card-empty">
-                      <div className="media-surface visual-placeholder" aria-label={`${band.label} image placeholder`}>
-                        <span>Image Space</span>
-                      </div>
-                    </article>
-                  )}
-                </div>
-              </section>
-
-              <section className="gallery-section">
-                <p className="section-label">Videos</p>
-                <div className="media-grid">
-                  {band.videos.length > 0 ? (
-                    band.videos.map((item) => (
-                      <article className="media-card" key={item.id}>
-                        <video src={item.src} controls preload="metadata" className="media-surface media-video">
-                          お使いのブラウザは動画再生に対応していません。
-                        </video>
-                      </article>
-                    ))
-                  ) : (
-                    <article className="media-card media-card-empty">
-                      <div className="media-surface visual-placeholder" aria-label={`${band.label} video placeholder`}>
-                        <span>Video Space</span>
-                      </div>
-                    </article>
-                  )}
-                </div>
-              </section>
-            </section>
-          ))}
-        </section>
+        <GalleryLightbox sections={gallerySections} />
 
         <Link href="/" className="secondary-link">
           トップへ戻る
