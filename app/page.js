@@ -1,6 +1,7 @@
 import Link from "next/link";
 import RevealOnScroll from "./reveal-on-scroll";
 import SiteHeader from "./site-header";
+import { bandImageDirectories, getBandImageMap, TOP_IMAGE_ROOT } from "./band-images";
 
 const eventInfo = [
   { label: "タイトル", value: "No Groove, No Society!" },
@@ -9,9 +10,9 @@ const eventInfo = [
   { label: "料金", value: "free" }
 ];
 
-const bands = ["釈迦色社会", "パフェ山脈"];
+export default async function HomePage() {
+  const topImages = await getBandImageMap(TOP_IMAGE_ROOT);
 
-export default function HomePage() {
   return (
     <main className="site-shell">
       <SiteHeader />
@@ -30,20 +31,31 @@ export default function HomePage() {
       </section>
 
       <section className="subpage-shell bands-flow home-bands-flow">
-        {bands.map((band, index) => (
-          <RevealOnScroll key={band}>
-            <article className="band-feature" style={{ transitionDelay: `${index * 140}ms` }}>
-              <div className="band-feature-name">
-                <p className="section-label">Performing Band</p>
-                <h2>{band}</h2>
-              </div>
-              <div className="band-feature-photo visual-placeholder" aria-label={`${band} photo space`}>
-                <span>{band} Photo Space</span>
-                <small>lastparfait/assets</small>
-              </div>
-            </article>
-          </RevealOnScroll>
-        ))}
+        {bandImageDirectories.map((band, index) => {
+          const image = topImages[band.key];
+
+          return (
+            <RevealOnScroll key={band.key}>
+              <article className="band-feature" style={{ transitionDelay: `${index * 140}ms` }}>
+                <div className="band-feature-name">
+                  <p className="section-label">Performing Band</p>
+                  <h2>{band.name}</h2>
+                </div>
+                <div className="band-feature-photo visual-placeholder" aria-label={`${band.name} photo space`}>
+                  {image ? (
+                    <img
+                      src={image.src}
+                      alt={`${band.name} artist photo`}
+                      className="band-photo-image"
+                    />
+                  ) : (
+                    <span>{band.name} Top Photo Space</span>
+                  )}
+                </div>
+              </article>
+            </RevealOnScroll>
+          );
+        })}
       </section>
 
       <RevealOnScroll>

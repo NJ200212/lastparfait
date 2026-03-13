@@ -1,26 +1,25 @@
 import Link from "next/link";
 import SiteHeader from "../site-header";
+import { bandImageDirectories, getBandImageMap, PROFILE_IMAGE_ROOT } from "../band-images";
 
-const bands = [
-  {
-    name: "釈迦色社会",
-    text: [
-      "2021年10月29日、初期バンドとして同期6名で結成。サークルライブへの出演を一大目標として掲げ、Groove Societyのコピーバンドとして活動を開始する。2023WLのオーディション後にGroove Societyコピーから脱却し、ジャズをはじめとする様々な楽曲に取り組む。",
-      "2024年7月、Harvard Din&Tonics来日公演のオープニングアクトとしての出演を機に、音楽を通じた国際交流に興味を持ち「GroovyでGlobal『Groobal』」をモットーに活動するようになる。あっくん主導のもと、海外で行われる国際コンテストに2度出場した。",
-      "様々な分岐点を乗り越えながら、6回連続でCLに出演させていただき、同じメンバーで5年間走り続けた同期バンドである。"
-    ]
-  },
-  {
-    name: "パフェ山脈",
-    text: ["写真とテキストの両方を差し込めるよう、独立したビジュアルエリアを先に確保しています。"]
-  }
-];
-
-export const metadata = {
-  title: "バンド紹介 | 釈迦色社会×パフェ山脈Last Live Vol.2"
+const bandProfiles = {
+  "shakashoku-shakai": [
+    "2021年10月29日、初期バンドとして同期6名で結成。サークルライブへの出演を一大目標として掲げ、Groove Societyのコピーバンドとして活動を開始する。2023WLのオーディション後にGroove Societyコピーから脱却し、ジャズをはじめとする様々な楽曲に取り組む。",
+    "2024年7月、Harvard Din&Tonics来日公演のオープニングアクトとしての出演を機に、音楽を通じた国際交流に興味を持ち「GroovyでGlobal『Groobal』」をモットーに活動するようになる。あっくん主導のもと、海外で行われる国際コンテストに2度出場した。",
+    "様々な分岐点を乗り越えながら、6回連続でCLに出演させていただき、同じメンバーで5年間走り続けた同期バンドである。"
+  ],
+  "parfait-sanmyaku": [
+    "柔らかさとテイストの違いを詰め込めるよう、後からビジュアルエリアを自由に差し替えられる構成で組んでいます。"
+  ]
 };
 
-export default function BandsPage() {
+export const metadata = {
+  title: "バンド紹介 | 釈迦色社会×パフェ山脈 Last Live Vol.2"
+};
+
+export default async function BandsPage() {
+  const profileImages = await getBandImageMap(PROFILE_IMAGE_ROOT);
+
   return (
     <main className="site-shell">
       <SiteHeader />
@@ -32,23 +31,34 @@ export default function BandsPage() {
         </div>
 
         <section className="bands-page-grid">
-          {bands.map((band) => (
-            <article className="band-profile-card" key={band.name}>
-              <div className="band-panel-photo visual-placeholder" aria-label={`${band.name} visual placeholder`}>
-                <span>{band.name} Visual Space</span>
-                <small>lastparfait/assets</small>
-              </div>
-              <div className="content-card band-panel-copy">
-                <p className="section-label">Band Profile</p>
-                <h2>{band.name}</h2>
-                <div className="band-profile-text">
-                  {band.text.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
+          {bandImageDirectories.map((band) => {
+            const image = profileImages[band.key];
+
+            return (
+              <article className="band-profile-card" key={band.key}>
+                <div className="band-panel-photo visual-placeholder" aria-label={`${band.name} visual placeholder`}>
+                  {image ? (
+                    <img
+                      src={image.src}
+                      alt={`${band.name} profile visual`}
+                      className="band-photo-image"
+                    />
+                  ) : (
+                    <span>{band.name} Profile Visual Space</span>
+                  )}
                 </div>
-              </div>
-            </article>
-          ))}
+                <div className="content-card band-panel-copy">
+                  <p className="section-label">Band Profile</p>
+                  <h2>{band.name}</h2>
+                  <div className="band-profile-text">
+                    {bandProfiles[band.key].map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </section>
 
         <Link href="/" className="secondary-link">

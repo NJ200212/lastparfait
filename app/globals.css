@@ -396,6 +396,14 @@ h2 {
   min-height: 46vh;
 }
 
+.band-photo-image {
+  display: block;
+  width: calc(100% + 48px);
+  height: calc(100% + 48px);
+  margin: -24px;
+  object-fit: cover;
+}
+
 .subpage-header {
   margin-bottom: 24px;
 }
@@ -687,6 +695,11 @@ h2 {
   .band-panel-photo,
   .media-surface {
     min-height: 34vh;
+  }
+
+  .band-photo-image {
+    width: calc(100% + 48px);
+    height: calc(100% + 48px);
   }
 
   .hero-card,
