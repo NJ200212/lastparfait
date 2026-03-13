@@ -1,4 +1,3 @@
-import Link from "next/link";
 import RevealOnScroll from "./reveal-on-scroll";
 import SiteHeader from "./site-header";
 import { bandImageDirectories, getBandImageMap, TOP_IMAGE_ROOT } from "./band-images";
@@ -71,18 +70,6 @@ export default async function HomePage() {
                   <strong>{item.value}</strong>
                 </article>
               ))}
-            </div>
-
-            <div className="cta-row">
-              <Link href="/bands" className="secondary-link">
-                バンド紹介を見る
-              </Link>
-              <Link href="/setlist" className="secondary-link">
-                セットリストを見る
-              </Link>
-              <Link href="/albums" className="secondary-link">
-                ギャラリーを見る
-              </Link>
             </div>
           </section>
         </section>

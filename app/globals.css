@@ -91,65 +91,6 @@ a {
   z-index: 20;
 }
 
-.header-menu {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  z-index: 30;
-}
-
-.header-menu-button {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 52px;
-  height: 52px;
-  padding: 0 12px;
-  border: 1px solid var(--border);
-  background: rgba(35, 11, 16, 0.52);
-  backdrop-filter: blur(10px);
-  cursor: pointer;
-}
-
-.header-menu-button span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--accent-strong);
-}
-
-.header-menu-panel {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  min-width: 190px;
-  padding: 8px;
-  border: 1px solid var(--border);
-  background: rgba(35, 11, 16, 0.82);
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow);
-  opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.header-menu-panel.is-open {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.header-menu-link {
-  display: block;
-  padding: 12px 14px;
-}
-
-.header-menu-link + .header-menu-link {
-  border-top: 1px solid rgba(255, 209, 180, 0.12);
-}
-
 .site-logo {
   position: relative;
   display: flex;
@@ -201,6 +142,36 @@ a {
   height: 112px;
   max-height: 112px;
   object-fit: contain;
+}
+
+.header-link-bar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 14px 0 18px;
+}
+
+.header-link-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 62px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 209, 180, 0.34);
+  background: rgba(35, 11, 16, 0.62);
+  backdrop-filter: blur(12px);
+  color: var(--accent-strong);
+  font-size: 1.02rem;
+  letter-spacing: 0.08em;
+  transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.header-link-pill:hover {
+  transform: translateY(-1px);
+  background: rgba(58, 18, 25, 0.74);
+  border-color: rgba(255, 209, 180, 0.5);
 }
 
 .hero-stage {
@@ -725,23 +696,21 @@ h2 {
     padding: 8px 10px;
   }
 
-  .header-menu {
-    top: 10px;
-    left: 10px;
-  }
-
-  .header-menu-button {
-    width: 44px;
-    height: 44px;
-    padding: 0 10px;
-  }
-
-  .header-menu-panel {
-    min-width: 160px;
-  }
-
   .site-logo-image {
     height: 76px;
+  }
+
+  .header-link-bar {
+    width: min(100% - 20px, 100%);
+    gap: 8px;
+    padding: 10px 0 14px;
+  }
+
+  .header-link-pill {
+    min-height: 48px;
+    padding: 0 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
   }
 
   .hero-stage {
