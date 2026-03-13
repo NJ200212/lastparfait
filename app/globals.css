@@ -435,6 +435,11 @@ h2 {
   font-size: 1.05rem;
 }
 
+.setlist-note-item {
+  list-style: none;
+  margin-left: -1.4rem;
+}
+
 .setlist-reveal {
   position: relative;
   margin-bottom: 32px;

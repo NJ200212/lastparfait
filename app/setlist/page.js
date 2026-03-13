@@ -30,7 +30,7 @@ const setlists = [
           "Moonlight Serenade / Glenn Miller / ヤマハジャズスタンダード ver.",
           "Moon Dance / Van Morrison / Groove Society ver.",
           "It Don’t Mean a Thing / Duke Ellington / Big Band Beat ver.",
-          "And more…?"
+          { text: "And more…?", unnumbered: true }
         ]
       }
     ]
@@ -88,7 +88,12 @@ export default function SetlistPage() {
                       <p className="section-label">{section.title}</p>
                       <ol className="setlist-list">
                         {section.songs.map((song) => (
-                          <li key={song}>{song}</li>
+                          <li
+                            key={typeof song === "string" ? song : song.text}
+                            className={typeof song === "string" ? "" : "setlist-note-item"}
+                          >
+                            {typeof song === "string" ? song : song.text}
+                          </li>
                         ))}
                       </ol>
                     </section>
