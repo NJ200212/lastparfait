@@ -12,7 +12,22 @@ const galleryBands = [
   { key: "parfait-sanmyaku", label: "パフェ山脈" }
 ];
 
-async function getMediaItems(bandKey, folderName, extensions, type) {
+async function getThumbnailMap(bandKey) {
+  const directory = path.join(process.cwd(), "public", "gallery", bandKey, "video-thumbnails");
+  const entries = await readdir(directory, { withFileTypes: true }).catch(() => []);
+
+  return new Map(
+    entries
+      .filter((entry) => entry.isFile())
+      .filter((entry) => IMAGE_EXTENSIONS.has(path.extname(entry.name).toLowerCase()))
+      .map((entry) => [
+        path.basename(entry.name, path.extname(entry.name)),
+        `/gallery/${bandKey}/video-thumbnails/${entry.name}`
+      ])
+  );
+}
+
+async function getMediaItems(bandKey, folderName, extensions, type, thumbnailMap = new Map()) {
   const directory = path.join(process.cwd(), "public", "gallery", bandKey, folderName);
   const entries = await readdir(directory, { withFileTypes: true }).catch(() => []);
 
@@ -20,12 +35,17 @@ async function getMediaItems(bandKey, folderName, extensions, type) {
     .filter((entry) => entry.isFile())
     .filter((entry) => extensions.has(path.extname(entry.name).toLowerCase()))
     .sort((left, right) => left.name.localeCompare(right.name, "ja"))
-    .map((entry) => ({
-      id: `${bandKey}-${folderName}-${entry.name}`,
-      src: `/gallery/${bandKey}/${folderName}/${entry.name}`,
-      title: entry.name,
-      type
-    }));
+    .map((entry) => {
+      const baseName = path.basename(entry.name, path.extname(entry.name));
+
+      return {
+        id: `${bandKey}-${folderName}-${entry.name}`,
+        src: `/gallery/${bandKey}/${folderName}/${entry.name}`,
+        title: entry.name,
+        type,
+        poster: type === "video" ? thumbnailMap.get(baseName) ?? null : null
+      };
+    });
 }
 
 export const metadata = {
@@ -34,11 +54,15 @@ export const metadata = {
 
 export default async function AlbumsPage() {
   const gallerySections = await Promise.all(
-    galleryBands.map(async (band) => ({
-      ...band,
-      images: await getMediaItems(band.key, "images", IMAGE_EXTENSIONS, "image"),
-      videos: await getMediaItems(band.key, "videos", VIDEO_EXTENSIONS, "video")
-    }))
+    galleryBands.map(async (band) => {
+      const thumbnailMap = await getThumbnailMap(band.key);
+
+      return {
+        ...band,
+        images: await getMediaItems(band.key, "images", IMAGE_EXTENSIONS, "image"),
+        videos: await getMediaItems(band.key, "videos", VIDEO_EXTENSIONS, "video", thumbnailMap)
+      };
+    })
   );
 
   return (

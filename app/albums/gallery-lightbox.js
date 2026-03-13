@@ -67,10 +67,18 @@ export default function GalleryLightbox({ sections }) {
                       onClick={() => setActiveItem(item)}
                       aria-label={`${band.label} の動画を拡大表示`}
                     >
-                      <div className="media-surface media-video-thumb" aria-hidden="true">
-                        <span className="media-video-badge">VIDEO</span>
-                        <span className="media-video-play"></span>
-                      </div>
+                      {item.poster ? (
+                        <div className="media-surface media-video-thumb media-video-poster" aria-hidden="true">
+                          <img src={item.poster} alt="" className="media-video-poster-image" />
+                          <span className="media-video-badge">VIDEO</span>
+                          <span className="media-video-play"></span>
+                        </div>
+                      ) : (
+                        <div className="media-surface media-video-thumb" aria-hidden="true">
+                          <span className="media-video-badge">VIDEO</span>
+                          <span className="media-video-play"></span>
+                        </div>
+                      )}
                     </button>
                   ))
                 ) : (
@@ -110,6 +118,7 @@ export default function GalleryLightbox({ sections }) {
                   controls
                   autoPlay
                   preload="metadata"
+                  poster={activeItem.poster ?? undefined}
                   className="lightbox-media lightbox-video"
                 >
                   お使いのブラウザは動画の再生に対応していません。
