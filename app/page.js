@@ -3,7 +3,7 @@ import RevealOnScroll from "./reveal-on-scroll";
 import SiteHeader from "./site-header";
 
 const eventInfo = [
-  { label: "タイトル", value: "釈迦色社会×パフェ山脈Last Live Vol.2" },
+  { label: "タイトル", value: "No Groove, No Society!" },
   { label: "日時", value: "2026/03/15(sun) 15:00開場 15:30開演" },
   { label: "場所", value: "4共30" },
   { label: "料金", value: "free" }
@@ -21,8 +21,8 @@ export default function HomePage() {
           <div className="hero-copy">
             <p className="eyebrow">Last Live Announcement</p>
             <h1 className="hero-title">
-              <span className="hero-title-line">釈迦色社会×パフェ山脈</span>
-              <span className="hero-title-line hero-title-subline">Last Live Vol.2</span>
+              <span className="hero-title-line hero-title-kicker">釈迦色社会×パフェ山脈 Last Live Vol.2</span>
+              <span className="hero-title-line hero-title-main">No Groove, No Society!</span>
             </h1>
             <p className="lead">2026/03/15(sun) 15:00開場 15:30開演 / 4共30 / free</p>
           </div>
