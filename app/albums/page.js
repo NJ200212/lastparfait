@@ -49,9 +49,17 @@ export default async function AlbumsPage() {
           <h1>画像・動画ギャラリー</h1>
         </div>
 
+        <nav className="gallery-jump-nav" aria-label="ギャラリー内移動">
+          {gallerySections.map((band) => (
+            <a key={band.key} href={`#gallery-${band.key}`} className="gallery-jump-link">
+              {band.label}
+            </a>
+          ))}
+        </nav>
+
         <section className="gallery-band-stack">
           {gallerySections.map((band) => (
-            <section className="gallery-band-section" key={band.key}>
+            <section className="gallery-band-section" key={band.key} id={`gallery-${band.key}`}>
               <div className="gallery-band-header">
                 <p className="section-label">Gallery</p>
                 <h2>{band.label}</h2>

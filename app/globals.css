@@ -527,6 +527,23 @@ h2 {
   margin-bottom: 32px;
 }
 
+.gallery-jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.gallery-jump-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 209, 180, 0.34);
+  background: rgba(255, 245, 236, 0.1);
+}
+
 .gallery-band-header {
   margin-bottom: 18px;
 }
@@ -683,6 +700,15 @@ h2 {
 
   .media-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .gallery-jump-nav {
+    gap: 10px;
+  }
+
+  .gallery-jump-link {
+    min-height: 40px;
+    padding: 0 14px;
   }
 
   .bands-page-grid {
