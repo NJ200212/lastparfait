@@ -435,6 +435,68 @@ h2 {
   font-size: 1.05rem;
 }
 
+.setlist-reveal {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.setlist-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(35, 11, 16, 0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 209, 180, 0.18);
+}
+
+.setlist-reveal.is-revealed .setlist-overlay {
+  display: none;
+}
+
+.setlist-reveal:not(.is-revealed) .setlist-band-stack {
+  filter: blur(12px);
+  opacity: 0.42;
+  pointer-events: none;
+  user-select: none;
+}
+
+.setlist-reveal-button {
+  min-height: 52px;
+  padding: 0 24px;
+  border: 1px solid rgba(255, 209, 180, 0.34);
+  background: rgba(255, 245, 236, 0.12);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.setlist-band-stack {
+  display: grid;
+  gap: 28px;
+}
+
+.setlist-band-card {
+  display: grid;
+  gap: 24px;
+}
+
+.setlist-band-header h2 {
+  font-size: clamp(2rem, 4.2vw, 3rem);
+}
+
+.setlist-section-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.setlist-section-card {
+  padding: 22px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+}
+
 .media-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -486,6 +548,10 @@ h2 {
 
   .media-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .setlist-section-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -578,5 +644,10 @@ h2 {
 
   .media-grid {
     grid-template-columns: 1fr;
+  }
+
+  .setlist-band-card,
+  .setlist-section-card {
+    gap: 18px;
   }
 }
