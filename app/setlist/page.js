@@ -71,7 +71,6 @@ export default function SetlistPage() {
         <div className="subpage-header">
           <p className="eyebrow">Setlist</p>
           <h1>セットリスト</h1>
-          <p>各バンドごとに部構成で整理しています。ネタバレ防止のため、ボタンを押すまで内容は隠しています。</p>
         </div>
 
         <SetlistReveal>
