@@ -39,10 +39,6 @@ export default async function AlbumsPage() {
         <div className="subpage-header">
           <p className="eyebrow">Gallery</p>
           <h1>画像・動画ギャラリー</h1>
-          <p>
-            `public/gallery/images` と `public/gallery/videos` にファイルを入れて GitHub を更新すると、
-            このページに自動で追加されます。
-          </p>
         </div>
 
         <section className="gallery-section">

@@ -29,7 +29,6 @@ export default function BandsPage() {
         <div className="subpage-header">
           <p className="eyebrow">Bands</p>
           <h1>バンド紹介</h1>
-          <p>各バンドの写真やプロフィールを後から挿し込めるよう、プレースホルダを含んだ形で組んでいます。</p>
         </div>
 
         <section className="bands-page-grid">
