@@ -236,6 +236,7 @@ a {
 
 .hero-title-line {
   display: block;
+  white-space: nowrap;
 }
 
 .hero-title-subline {
@@ -532,6 +533,25 @@ h2 {
 
   .band-feature-name h2 {
     font-size: clamp(2.2rem, 10vw, 3.3rem);
+  }
+
+  .hero-copy {
+    width: 100%;
+  }
+
+  .hero-title {
+    width: 100%;
+    font-size: clamp(2.05rem, 8.6vw, 3.2rem);
+    line-height: 1.02;
+  }
+
+  .hero-title-line {
+    white-space: normal;
+  }
+
+  .hero-title-subline {
+    margin-top: 0.12em;
+    font-size: 0.8em;
   }
 
   .band-feature-photo,
