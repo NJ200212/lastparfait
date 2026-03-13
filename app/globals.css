@@ -344,7 +344,7 @@ h2 {
 
 .home-bands-flow {
   padding-top: 112px;
-  padding-bottom: 64px;
+  padding-bottom: 112px;
 }
 
 .band-feature {
@@ -727,6 +727,7 @@ h2 {
 
   .home-bands-flow {
     padding-top: 72px;
+    padding-bottom: 88px;
   }
 
   .band-feature {
