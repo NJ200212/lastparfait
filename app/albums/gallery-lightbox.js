@@ -67,7 +67,10 @@ export default function GalleryLightbox({ sections }) {
                       onClick={() => setActiveItem(item)}
                       aria-label={`${band.label} の動画を拡大表示`}
                     >
-                      <video src={item.src} preload="metadata" className="media-surface media-video" />
+                      <div className="media-surface media-video-thumb" aria-hidden="true">
+                        <span className="media-video-badge">VIDEO</span>
+                        <span className="media-video-play"></span>
+                      </div>
                     </button>
                   ))
                 ) : (
