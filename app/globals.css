@@ -517,6 +517,10 @@ h2 {
   margin-bottom: 32px;
 }
 
+.gallery-band-section {
+  scroll-margin-top: 220px;
+}
+
 .gallery-jump-nav {
   display: flex;
   flex-wrap: wrap;
