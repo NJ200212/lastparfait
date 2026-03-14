@@ -70,12 +70,10 @@ export default function GalleryLightbox({ sections }) {
                       {item.poster ? (
                         <div className="media-surface media-video-thumb media-video-poster" aria-hidden="true">
                           <img src={item.poster} alt="" className="media-video-poster-image" />
-                          <span className="media-video-badge">VIDEO</span>
                           <span className="media-video-play"></span>
                         </div>
                       ) : (
                         <div className="media-surface media-video-thumb" aria-hidden="true">
-                          <span className="media-video-badge">VIDEO</span>
                           <span className="media-video-play"></span>
                         </div>
                       )}

@@ -620,18 +620,6 @@ h2 {
   border: 1px solid rgba(255, 209, 180, 0.16);
 }
 
-.media-video-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 3px 8px;
-  border: 1px solid rgba(255, 209, 180, 0.28);
-  background: rgba(22, 8, 10, 0.42);
-  color: var(--accent-strong);
-  font-size: 0.66rem;
-  letter-spacing: 0.12em;
-}
-
 .media-video-play {
   width: 0;
   height: 0;
