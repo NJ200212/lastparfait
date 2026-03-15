@@ -224,6 +224,7 @@ a {
   display: block;
   width: 100%;
   height: auto;
+  filter: sepia(0.42) saturate(1.28) hue-rotate(-8deg) brightness(1.06);
 }
 
 .hero-title {
