@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "歌詞 | 釈迦色社会×パフェ山脈 Last Live Vol.2"
 };
@@ -33,6 +35,10 @@ export default function KakushiPage() {
             )}
           </div>
         </article>
+
+        <Link href="/" className="secondary-link">
+          トップへもどる
+        </Link>
       </section>
     </main>
   );
