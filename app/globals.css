@@ -205,7 +205,7 @@ a {
 
 .site-secret-link {
   position: absolute;
-  top: clamp(178px, 19vw, 224px);
+  top: clamp(188px, 19.8vw, 234px);
   right: clamp(4px, 1vw, 18px);
   z-index: 6;
   display: inline-flex;
@@ -835,7 +835,7 @@ h2 {
   }
 
   .site-secret-link {
-    top: 164px;
+    top: 172px;
     right: 2px;
     width: clamp(72px, 20vw, 96px);
   }
