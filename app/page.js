@@ -16,13 +16,12 @@ export default async function HomePage() {
   return (
     <main className="site-shell">
       <SiteHeader />
+      <Link href="/kakushi" className="site-secret-link" aria-label="隠しページへ移動">
+        <img src="/assets/kakushi.png" alt="" className="site-secret-image" />
+      </Link>
 
       <section className="hero-stage">
         <div className="hero-stage-inner">
-          <Link href="/kakushi" className="hero-secret-link" aria-label="隠しページへ移動">
-            <img src="/assets/kakushi.png" alt="" className="hero-secret-image" />
-          </Link>
-
           <div className="hero-copy">
             <p className="eyebrow">Last Live Announcement</p>
             <h1 className="hero-title">

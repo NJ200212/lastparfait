@@ -203,24 +203,24 @@ a {
   text-align: center;
 }
 
-.hero-secret-link {
+.site-secret-link {
   position: absolute;
-  top: -14px;
-  right: -10px;
-  z-index: 2;
+  top: clamp(118px, 14vw, 164px);
+  right: clamp(4px, 1vw, 18px);
+  z-index: 6;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: clamp(84px, 11vw, 124px);
+  width: clamp(92px, 11vw, 132px);
   transition: transform 160ms ease, opacity 160ms ease;
 }
 
-.hero-secret-link:hover {
+.site-secret-link:hover {
   transform: translateY(-2px);
   opacity: 0.92;
 }
 
-.hero-secret-image {
+.site-secret-image {
   display: block;
   width: 100%;
   height: auto;
@@ -831,13 +831,12 @@ h2 {
 
   .hero-copy {
     width: 100%;
-    padding-top: 72px;
   }
 
-  .hero-secret-link {
-    top: -8px;
-    right: -4px;
-    width: clamp(74px, 22vw, 98px);
+  .site-secret-link {
+    top: 122px;
+    right: 2px;
+    width: clamp(72px, 20vw, 96px);
   }
 
   .hero-title {
