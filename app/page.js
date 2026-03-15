@@ -1,3 +1,4 @@
+import Link from "next/link";
 import RevealOnScroll from "./reveal-on-scroll";
 import SiteHeader from "./site-header";
 import { bandImageDirectories, getBandImageMap, TOP_IMAGE_ROOT } from "./band-images";
@@ -18,6 +19,10 @@ export default async function HomePage() {
 
       <section className="hero-stage">
         <div className="hero-stage-inner">
+          <Link href="/kakushi" className="hero-secret-link" aria-label="隠しページへ移動">
+            <img src="/assets/kakushi.png" alt="" className="hero-secret-image" />
+          </Link>
+
           <div className="hero-copy">
             <p className="eyebrow">Last Live Announcement</p>
             <h1 className="hero-title">
@@ -45,11 +50,7 @@ export default async function HomePage() {
                   aria-label={`${band.name} photo space`}
                 >
                   {image ? (
-                    <img
-                      src={image.src}
-                      alt={`${band.name} artist photo`}
-                      className="band-photo-image"
-                    />
+                    <img src={image.src} alt={`${band.name} artist photo`} className="band-photo-image" />
                   ) : (
                     <span>{band.name} Top Photo Space</span>
                   )}

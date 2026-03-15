@@ -20,7 +20,8 @@ const setlists = [
         songs: [
           "In the Mood / Joe Garland / The Oxford Gargoyles ver.",
           "Les Champs-Élysées / Michael Wilshaw & Michael Antony Deighan / SHAKA-SHOKU-SHAKAI ver.",
-          "Take the A train / Duke Ellington / The Harvard Din&Tonics ver."
+          "Take the A train / Duke Ellington / The Harvard Din&Tonics ver.",
+          "Sunny / Bobby Hebb / KREATIVO ver."
         ]
       },
       {
@@ -52,14 +53,14 @@ const setlists = [
       },
       {
         title: "第三部",
-        songs: ["いとしのエリー / サザンオールスターズ", "さよならのうた / パフェ山脈", "勝手にシンドバッド / サザンオールスターズ"]
+        songs: ["いとしのエリー / サザンオールスターズ", "さよならのうた / パフェ山脈", "勝手にシンドバッド / パフェ山脈"]
       }
     ]
   }
 ];
 
 export const metadata = {
-  title: "セットリスト | 釈迦色社会×パフェ山脈Last Live Vol.2"
+  title: "セットリスト | 釈迦色社会×パフェ山脈 Last Live Vol.2"
 };
 
 export default function SetlistPage() {

@@ -193,6 +193,7 @@ a {
 }
 
 .hero-stage-inner {
+  position: relative;
   display: block;
 }
 
@@ -200,6 +201,29 @@ a {
   width: min(100%, 980px);
   margin: 0 auto;
   text-align: center;
+}
+
+.hero-secret-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(84px, 11vw, 124px);
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.hero-secret-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.hero-secret-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .hero-title {
@@ -251,6 +275,19 @@ a {
 .content-card {
   margin-top: 0;
   padding: 32px;
+}
+
+.lyrics-card {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.lyrics-block {
+  display: grid;
+  gap: 20px;
+  font-size: 1.02rem;
+  line-height: 2;
+  white-space: pre-wrap;
 }
 
 .eyebrow,
@@ -794,6 +831,7 @@ h2 {
 
   .hero-copy {
     width: 100%;
+    padding-top: 72px;
   }
 
   .hero-title {
