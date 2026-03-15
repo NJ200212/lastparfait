@@ -23,12 +23,11 @@ export default async function HomePage() {
       <section className="hero-stage">
         <div className="hero-stage-inner">
           <div className="hero-copy">
-            <p className="eyebrow">Last Live Announcement</p>
+            <p className="eyebrow">Thank you for loving us !!!</p>
             <h1 className="hero-title">
               <span className="hero-title-line hero-title-kicker">釈迦色社会×パフェ山脈 Last Live Vol.2</span>
               <span className="hero-title-line hero-title-main">No Groove, No Society!</span>
             </h1>
-            <p className="lead">2026/03/15(sun) 15:00開場 15:30開演 / 4共30 / free</p>
           </div>
         </div>
       </section>

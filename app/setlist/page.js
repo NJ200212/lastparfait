@@ -1,6 +1,5 @@
 import Link from "next/link";
 import SiteHeader from "../site-header";
-import SetlistReveal from "./setlist-reveal";
 
 const setlists = [
   {
@@ -30,8 +29,14 @@ const setlists = [
           "Fly Me to the Moon / Bart Howard / ヤマハジャズスタンダード ver.",
           "Moonlight Serenade / Glenn Miller / ヤマハジャズスタンダード ver.",
           "Moon Dance / Van Morrison / Groove Society ver.",
-          "It Don’t Mean a Thing / Duke Ellington / Big Band Beat ver.",
-          { text: "And more…?", unnumbered: true }
+          "It Don’t Mean a Thing / Duke Ellington / Big Band Beat ver."
+        ]
+      },
+      {
+        title: "Encore",
+        songs: [
+          "Listen to the Music / The Doobie Brothers / Groove Society ver.",
+          "Sing, Sing, Sing / Louis Prima / New York Voices ver."
         ]
       }
     ]
@@ -74,36 +79,29 @@ export default function SetlistPage() {
           <h1>セットリスト</h1>
         </div>
 
-        <SetlistReveal>
-          <section className="setlist-band-stack">
-            {setlists.map((setlist) => (
-              <article className="content-card setlist-band-card" key={setlist.band}>
-                <div className="setlist-band-header">
-                  <p className="section-label">Setlist</p>
-                  <h2>{setlist.band}</h2>
-                </div>
+        <section className="setlist-band-stack">
+          {setlists.map((setlist) => (
+            <article className="content-card setlist-band-card" key={setlist.band}>
+              <div className="setlist-band-header">
+                <p className="section-label">Setlist</p>
+                <h2>{setlist.band}</h2>
+              </div>
 
-                <div className="setlist-section-grid">
-                  {setlist.sections.map((section) => (
-                    <section className="setlist-section-card" key={`${setlist.band}-${section.title}`}>
-                      <p className="section-label">{section.title}</p>
-                      <ol className="setlist-list">
-                        {section.songs.map((song) => (
-                          <li
-                            key={typeof song === "string" ? song : song.text}
-                            className={typeof song === "string" ? "" : "setlist-note-item"}
-                          >
-                            {typeof song === "string" ? song : song.text}
-                          </li>
-                        ))}
-                      </ol>
-                    </section>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </section>
-        </SetlistReveal>
+              <div className="setlist-section-grid">
+                {setlist.sections.map((section) => (
+                  <section className="setlist-section-card" key={`${setlist.band}-${section.title}`}>
+                    <p className="section-label">{section.title}</p>
+                    <ol className="setlist-list">
+                      {section.songs.map((song) => (
+                        <li key={song}>{song}</li>
+                      ))}
+                    </ol>
+                  </section>
+                ))}
+              </div>
+            </article>
+          ))}
+        </section>
 
         <Link href="/" className="secondary-link">
           トップへ戻る
